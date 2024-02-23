@@ -1,7 +1,7 @@
 module Installation where
 
-import System.Process   (callProcess)
-import System.Directory (setCurrentDirectory)
+import System.Process   ( callProcess )
+import System.Directory ( setCurrentDirectory )
 
 repository = "github:Vonixxx/VonixOS"
 user       = "github:Vonixxx/VonixOS#vonix-desktop"

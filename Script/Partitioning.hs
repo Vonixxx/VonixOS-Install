@@ -1,6 +1,6 @@
 module Partitioning where
 
-import System.Process (callProcess)
+import System.Process ( callProcess )
 
 directory  = "/tmp/partitioning.nix"
 repository = "github:nix-community/disko"
