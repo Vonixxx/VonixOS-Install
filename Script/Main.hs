@@ -11,4 +11,4 @@ main = do
 
  callCommand "sleep 5 && reboot"
 
- putStrLn "Installation Finished - Rebooting..."
+ putStrLn "Installation Finished - Rebooting in 5 Seconds..."

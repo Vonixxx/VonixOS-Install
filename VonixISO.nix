@@ -10,7 +10,7 @@
  imports                            = [ <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix> ];
 
  environment.systemPackages = let
-  fetch = pkgs.writeScriptBin "start" ''
+  start = pkgs.writeScriptBin "start" ''
      mkdir ./Script
      curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Main.hs         -o ./Script/Main.hs         &&
      curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Installation.hs -o ./Script/Installation.hs &&
