@@ -1,27 +1,27 @@
 module Partitioning where
 
-import System.Process ( callProcess )
+import System.Process ( callCommand )
 
-directory  = "/tmp/partitioning.nix"
-repository = "github:nix-community/disko"
-link       = "https://raw.githubusercontent.com/Vonixxx/VonixOS/master/system/configuration/partitioning/default.nix"
+output     = " -o "
+hide       = " > /dev/null "
+eraseMode  = " -- --mode disko "
+directory  = " /tmp/partitioning.nix "
+repository = " github:nix-community/disko "
+module     = " https://raw.githubusercontent.com/Vonixxx/VonixOS/master/system/configuration/partitioning/default.nix "
 
 partitioning = do
- _ <- callProcess "curl" [ link
-                         , "-o"
-                         , directory 
-                         , ">"
-                         , "/dev/null" ]
+ callCommand "curl" 
+             ++ module 
+             ++ output 
+             ++ directory 
+             ++ hide
 
  putStrLn "Acquiring Partitioning Module - Successful"
 
- _ <- callProcess "nix" [ "run"
-                        , repository
-                        , "--"
-                        , "--mode"
-                        , "disko"
-                        , directory 
-                        , ">"
-                        , "/dev/null" ]
+ callCommand "nix run" 
+             ++ repository 
+             ++ eraseMode
+             ++ directory 
+             ++ hide
 
  putStrLn "Partitioning - Successful"

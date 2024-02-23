@@ -1,27 +1,26 @@
 module Installation where
 
-import System.Process   ( callProcess )
+import System.Process   ( callCommand )
 import System.Directory ( setCurrentDirectory )
 
-repository = "github:Vonixxx/VonixOS"
-user       = "github:Vonixxx/VonixOS#vonix-laptop"
+impure      = " --impure "
+flakeUpdate = " flake update "
+repository  = " github:Vonixxx/VonixOS "
+options     = " --no-write-lock-file --flake "
+user        = " github:Vonixxx/VonixOS#vonix-laptop "
 
 installation = do
  setCurrentDirectory "/mnt"
 
- _ <- callProcess "nix" [ "flake"
-                        , "update"
-                        , repository
-                        , ">" 
-                        , "/dev/null" ]
+ callCommand "nix" 
+             ++ flakeUpdate
+             ++ repository
 
  putStrLn "Updating Flake - Successful"
 
- _ <- callProcess "nixos-install" [ "--no-write-lock-file" 
-                                  , "--flake" 
-                                  , user 
-                                  , "--impure" 
-                                  , ">"
-                                  , "/dev/null" ]
+ callCommand "nixos-install"
+             ++ options
+             ++ user
+             ++ impure
 
  putStrLn "Flake Installation - Successful"

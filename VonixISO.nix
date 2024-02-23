@@ -11,11 +11,10 @@
 
  environment.systemPackages = let
   start = pkgs.writeScriptBin "start" ''
-     mkdir ./Script
-     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Main.hs         -o ./Script/Main.hs         &&
-     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Installation.hs -o ./Script/Installation.hs &&
-     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Partitioning.hs -o ./Script/Partitioning.hs &&
-     sudo runhaskell ./Script/Main.hs
+     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Main.hs         -o ./Main.hs         &&
+     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Installation.hs -o ./Installation.hs &&
+     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Partitioning.hs -o ./Partitioning.hs &&
+     sudo runhaskell ./Main.hs
   '';
  in [
    start
