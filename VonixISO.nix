@@ -3,24 +3,22 @@
 #########################
 # VonixOS Installer ISO # 
 #########################
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
- imports = [
-   <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
- ];
-
  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+ imports                            = [ <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix> ];
 
  environment.systemPackages = let
-  fetch = pkgs.writeScriptBin "fetch" ''
-     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Main.hs -o ./Main.hs &&
-     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Installation.hs -o ./Installation.hs &&
-     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Partitioning.hs -o ./Partitioning.hs &&
-     sudo runhaskell ./Main.hs
+  fetch = pkgs.writeScriptBin "start" ''
+     mkdir ./Script
+     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Main.hs         -o ./Script/Main.hs         &&
+     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Installation.hs -o ./Script/Installation.hs &&
+     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Partitioning.hs -o ./Script/Partitioning.hs &&
+     sudo runhaskell ./Script/Main.hs
   '';
  in [
-   fetch
+   start
    pkgs.ghc
    pkgs.curl
  ];
