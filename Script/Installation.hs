@@ -6,9 +6,9 @@ repository = "'github:Vonixxx/VonixOS'"
 user       = "'github:Vonixxx/VonixOS#vonix-desktop'"
 
 installation = do
- callProcess "cd" [ "/mnt" ]
+ _ <- callProcess "cd" [ "/mnt" ]
 
- callProcess "nix" [ "flake"
+ _ <- callProcess "nix" [ "flake"
                    , "update"
                    , repository 
                    , "&&" 
@@ -17,7 +17,5 @@ installation = do
                    , "--flake" 
                    , user 
                    , "--impure" ]
-
- callProcess "reboot" []
 
  putStrLn "Flake Installation - Successful"
