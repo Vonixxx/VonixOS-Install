@@ -4,7 +4,7 @@ import System.Process   ( callProcess )
 import System.Directory ( setCurrentDirectory )
 
 repository = "github:Vonixxx/VonixOS"
-user       = "github:Vonixxx/VonixOS#vonix-desktop"
+user       = "github:Vonixxx/VonixOS#vonix-laptop"
 
 installation = do
  setCurrentDirectory "/mnt"
