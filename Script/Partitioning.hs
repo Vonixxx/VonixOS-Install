@@ -7,21 +7,21 @@ repository = "github:nix-community/disko"
 link       = "https://raw.githubusercontent.com/Vonixxx/VonixOS/master/system/configuration/partitioning/default.nix"
 
 partitioning = do
- _ <- callProcess "sudo" [ "su" ]
-
  _ <- callProcess "curl" [ link
                          , "-o"
-                         , directory ]
+                         , directory 
+                         , ">"
+                         , "/dev/null" ]
+
+ putStrLn "Acquiring Partitioning Module - Successful"
 
  _ <- callProcess "nix" [ "run"
                         , repository
                         , "--"
                         , "--mode"
                         , "disko"
-                        , directory ]
- 
- _ <- callProcess "mount" [ "|"
-                          , "grep"
-                          , "/mnt" ]
+                        , directory 
+                        , ">"
+                        , "/dev/null" ]
 
  putStrLn "Partitioning - Successful"

@@ -2,12 +2,13 @@ module InstallationScript where
 
 import Installation
 import Partitioning
-import System.Process (callProcess)
+import System.Process ( callCommand
+                      , callProcess )
 
 main = do
  partitioning
  installation
 
- _ <- callProcess "sleep 5 && reboot" []
+ callCommand "sleep 5 && reboot"
 
  putStrLn "Installation Finished - Rebooting..."

@@ -17,7 +17,7 @@
      curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Main.hs -o ./Main.hs &&
      curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Installation.hs -o ./Installation.hs &&
      curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Partitioning.hs -o ./Partitioning.hs &&
-     runhaskell ./Main.hs
+     sudo runhaskell ./Main.hs
   '';
  in [
    fetch
