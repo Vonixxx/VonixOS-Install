@@ -14,9 +14,9 @@
 
  environment.systemPackages = let
   fetch = pkgs.writeScriptBin "fetch" ''
-     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Main.hs &&
-     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Installation.hs &&
-     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Partitioning.hs
+     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Main.hs -o ./Script/Main.hs &&
+     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Installation.hs -o ./Script/Installation.hs &&
+     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Partitioning.hs -o ./Script/Partitioning.hs
   '';
  in [
    fetch
