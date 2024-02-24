@@ -20,6 +20,7 @@ with pkgs;
  environment.systemPackages = let
   start = writeScriptBin "start" ''
      nmtui connect
+     clear
      curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Main.hs         -o ./Main.hs         &&
      curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Variables.hs    -o ./Variables.hs    &&
      curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Installation.hs -o ./Installation.hs &&

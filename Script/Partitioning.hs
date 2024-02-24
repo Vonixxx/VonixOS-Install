@@ -4,6 +4,8 @@ import Variables
 import System.Process ( callCommand )
 
 partitioning = do
+ putStrLn "Acquiring Partitioning Module..."
+
  callCommand $ "curl" 
                ++ diskSetup 
                ++ output 
@@ -11,6 +13,8 @@ partitioning = do
                ++ hide
 
  putStrLn "Acquiring Partitioning Module - Successful"
+
+ putStrLn "Partitioning..."
 
  callCommand $ "nix run" 
                ++ disko 
