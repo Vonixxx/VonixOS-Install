@@ -1,17 +1,11 @@
 module Partitioning where
 
+import Variables
 import System.Process ( callCommand )
-
-output     = " -o "
-hide       = " > /dev/null "
-eraseMode  = " -- --mode disko "
-directory  = " /tmp/partitioning.nix "
-repository = " github:nix-community/disko "
-module     = " https://raw.githubusercontent.com/Vonixxx/VonixOS/master/system/configuration/partitioning/default.nix "
 
 partitioning = do
  callCommand $ "curl" 
-               ++ module 
+               ++ diskSetup 
                ++ output 
                ++ directory 
                ++ hide
@@ -19,7 +13,7 @@ partitioning = do
  putStrLn "Acquiring Partitioning Module - Successful"
 
  callCommand $ "nix run" 
-               ++ repository 
+               ++ disko 
                ++ eraseMode
                ++ directory 
                ++ hide

@@ -1,11 +1,9 @@
 module InstallationScript where
 
+import Variables
 import Installation
 import Partitioning
 import System.Process ( callCommand )
-
-hide   = " > /dev/null "
-reboot = " sleep 5 && reboot "
 
 main = do
  partitioning
