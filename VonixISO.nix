@@ -8,9 +8,13 @@
 with pkgs;
 
 {
- networking.networkmanager.enable   = true; 
  nix.settings.experimental-features = [ "nix-command" "flakes" ];
  imports                            = [ <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix> ];
+
+ networking = {
+   networkmanager.enable = true; 
+   wireless.enable       = false;
+ };
 
  environment.systemPackages = let
   start = writeScriptBin "start" ''
