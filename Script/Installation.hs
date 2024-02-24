@@ -7,20 +7,23 @@ impure      = " --impure "
 flakeUpdate = " flake update "
 repository  = " github:Vonixxx/VonixOS "
 options     = " --no-write-lock-file --flake "
-user        = " github:Vonixxx/VonixOS#vonix-laptop "
 
 installation = do
  setCurrentDirectory "/mnt"
 
- callCommand "nix" 
-             ++ flakeUpdate
-             ++ repository
+ callCommand $ "nix" 
+               ++ flakeUpdate
+               ++ repository
 
  putStrLn "Updating Flake - Successful"
 
- callCommand "nixos-install"
-             ++ options
-             ++ user
-             ++ impure
+ putStrLn "Enter Name in the following way, John Doe --> #d.john"
+ user <- getLine
+
+ callCommand $ "nixos-install"
+               ++ options
+               ++ repository
+               ++ user
+               ++ impure
 
  putStrLn "Flake Installation - Successful"
