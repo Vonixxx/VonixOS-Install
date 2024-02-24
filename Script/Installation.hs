@@ -10,9 +10,10 @@ installation = do
  callCommand $ "nix" 
                ++ flakeUpdate
                ++ vonixOS
+               ++ hide
 
  putStrLn "Updating Flake - Successful"
- putStrLn "Enter Name in the following way, John Doe --> #d.john"
+ putStrLn "Name: (Example - John Doe --> #d.john)"
 
  user <- getLine
 
@@ -20,5 +21,7 @@ installation = do
                ++ options
                ++ vonixOS
                ++ user
+               ++ impure
+               ++ hide
 
  putStrLn "Flake Installation - Successful"
