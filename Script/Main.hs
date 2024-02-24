@@ -11,7 +11,7 @@ main = do
  partitioning
  installation
 
- callCommand reboot
-             ++ hide
+ callCommand $ reboot
+               ++ hide
 
  putStrLn "Installation Finished - Rebooting in 5 Seconds..."

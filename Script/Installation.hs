@@ -16,8 +16,8 @@ installation = do
                ++ repository
 
  putStrLn "Updating Flake - Successful"
-
  putStrLn "Enter Name in the following way, John Doe --> #d.john"
+
  user <- getLine
 
  callCommand $ "nixos-install"

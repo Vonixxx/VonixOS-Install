@@ -8,6 +8,7 @@
 with pkgs;
 
 {
+ networking.networkmanager.enable   = true; 
  nix.settings.experimental-features = [ "nix-command" "flakes" ];
  imports                            = [ <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix> ];
 
@@ -22,7 +23,6 @@ with pkgs;
  in [
    curl
    ghc
-   networkmanager
    start
  ];
 }
