@@ -21,10 +21,10 @@ with pkgs;
   start = writeScriptBin "start" ''
      nmtui connect
      clear
-     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Main.hs         -o ./Main.hs         &&
-     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Variables.hs    -o ./Variables.hs    &&
-     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Installation.hs -o ./Installation.hs &&
-     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Partitioning.hs -o ./Partitioning.hs &&
+     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Main.hs         -o ./Main.hs         &> /dev/null &&
+     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Variables.hs    -o ./Variables.hs    &> /dev/null &&
+     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Installation.hs -o ./Installation.hs &> /dev/null &&
+     curl https://raw.githubusercontent.com/Vonixxx/VonixOS-Install/master/Script/Partitioning.hs -o ./Partitioning.hs &> /dev/null &&
      sudo runhaskell ./Main.hs
   '';
  in [

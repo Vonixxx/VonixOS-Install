@@ -16,7 +16,7 @@ installation = do
 
  putStrLn "Updating Flake - Successful"
 
- putStr "Name: (Example - John Doe --> #d.john)"
+ putStr "Name (Format: John Doe --> #d.john): "
 
  user <- getLine
 
