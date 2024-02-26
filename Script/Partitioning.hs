@@ -7,19 +7,21 @@ partitioning = do
  putStrLn "Acquiring Partitioning Module..."
 
  callCommand $ "curl" 
-               ++ diskSetupNvme
-               ++ output 
-               ++ diskSetupSource 
+               ++ linkDiskSetupNvme
+               ++ " -o " 
+               ++ " /tmp/partitioning.nix " 
                ++ hide
 
  putStrLn "Acquiring Partitioning Module - Successful"
 
+ -----------------------------------------------------
+
  putStrLn "Partitioning..."
 
  callCommand $ "nix run" 
-               ++ disko 
-               ++ eraseMode
-               ++ diskSetupSource 
+               ++ linkDisko 
+               ++ " -- --mode disko "
+               ++ " /tmp/partitioning.nix "
                ++ hide
 
  putStrLn "Partitioning - Successful"
