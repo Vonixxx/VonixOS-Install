@@ -9,5 +9,5 @@ main = do
  partitioning
  installation
 
- putStrLn    "Installation Finished - Rebooting in 5 Seconds..."
+ putStrLn    "Rebooting in 5 Seconds..."
  callCommand "sleep 5 && reboot"

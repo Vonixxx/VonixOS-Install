@@ -2,7 +2,6 @@ module Installation where
 
 import Variables
 import System.Process   ( callCommand )
-import System.Directory ( setCurrentDirectory )
 
 installation = do
  putStrLn "Updating Flake..."
@@ -15,7 +14,7 @@ installation = do
 
  --------------------------------------
 
- putStr "Name (Format: John Doe --> #d.john): "
+ putStr "Name (Format: Abraham Lincoln --> l.abraham): "
 
  user <- getLine
 
@@ -25,7 +24,8 @@ installation = do
 
  callCommand $ "nixos-install --no-write-lock-file --flake"
                ++ linkVonixOS
+               ++ "#"
                ++ user
                ++ impure
 
- putStrLn "Flake Installation - Successful"
+ putStrLn "System Installation - Successful"

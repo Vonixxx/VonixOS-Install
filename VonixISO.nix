@@ -8,12 +8,12 @@
 with pkgs;
 
 {
- boot.kernelParams                  = [ "quiet" ]; 
+ boot.kernelParams                  = [ "quiet" ];
  nix.settings.experimental-features = [ "nix-command" "flakes" ];
  imports                            = [ <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix> ];
 
  networking = {
-   networkmanager.enable = true; 
+   networkmanager.enable = true;
    wireless.enable       = false;
  };
 
