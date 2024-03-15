@@ -1,31 +1,27 @@
 module Installation where
 
 import Variables
+import Text.Printf ( printf )
 import System.Process   ( callCommand )
 
 installation = do
  putStrLn "Updating Flake..."
 
- callCommand $ "cd /mnt && nix flake update" 
-               ++ linkVonixOS
-               ++ hide
+ callCommand $ printf "cd /mnt && nix flake update %a %b" 
+               linkVonixOS
+               hide
 
  putStrLn "Updating Flake - Successful"
-
  --------------------------------------
-
- putStr "Name (Format: Abraham Lincoln --> l.abraham): "
+ putStrLn "(Format: Richard Nixon --> n.richard)"
+ putStr   "Name: "
 
  user <- getLine
-
  ---------------
-
  putStrLn "Installing System..."
 
- callCommand $ "nixos-install --no-write-lock-file --flake"
-               ++ linkVonixOS
-               ++ "#"
-               ++ user
-               ++ impure
+ callCommand $ printf "nixos-install --no-write-lock-file --flake %a #%b --impure"
+                      linkVonixOS
+                      user
 
  putStrLn "System Installation - Successful"
